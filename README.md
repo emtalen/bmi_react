@@ -1,6 +1,7 @@
 ## Bmi Calculator in React
 
 This is a BMI-Calculator that we creating using React 16.12.0. 
+The user can calculate their BMI with both Metric and Imperial system. 
 
 ### Link: 
 https://bmicalcwithreact.netlify.com/
@@ -16,10 +17,10 @@ I would like to be able to put in my personal height and weight
 
 - As a user
 In order to know what value that BMI index has
-I would like to be presented with the message explaning the index
+I would like to be presented with the message explaining the index
 
 - As a user
-In order to calculate my index in both Materic and Imperial systems
+In order to calculate my index in both Metric and Imperial systems
 I would like to be able to choose what system I want to use
 
 ### Improvements/Updates:
