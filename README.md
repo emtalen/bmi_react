@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Bmi Calculator in React
 
-## Available Scripts
+This is a BMI-Calculator that we creating using React 16.12.0. 
 
-In the project directory, you can run:
+### Link: 
+https://bmicalcwithreact.netlify.com/
 
-### `yarn start`
+### Tested with:
+- We have used Cypress for acceptance test
+- We have used Jest with Enzyme for component testing
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### User Stories:
+- As a user
+In order to get my BMI index
+I would like to be able to put in my personal height and weight
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- As a user
+In order to know what value that BMI index has
+I would like to be presented with the message explaning the index
 
-### `yarn test`
+- As a user
+In order to calculate my index in both Materic and Imperial systems
+I would like to be able to choose what system I want to use
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Improvements/Updates:
+- As a user
+In order to have my personal account
+I would like to be able to log in
 
-### `yarn build`
+- As a user
+In order to keep track of my development
+I would like to be able to see a list of previous BMI index
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- We would also need to add styling to the page to make it more user friendly and better looking.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### License: 
+#### MIT-license
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
