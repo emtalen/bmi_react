@@ -27,6 +27,8 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1 id='title'>The BMI Calculator</h1>
+        <h2 id='subtitle'>In Metric and Imperial system</h2>
         <Form
           weight={this.state.weight}
           height={this.state.height}

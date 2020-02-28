@@ -12,9 +12,9 @@ const Form = props => {
         onChange={props.onChangeHandler}>
         <option name='metric' value='metric'>Metric</option>
         <option name='imperial' value='imperial'>Imperial</option>
-      </select>
+      </select><br/>
 
-      <label htmlFor="weight">Weight</label>
+      <label htmlFor="weight" id='weight-label'>Weight</label>
       <input
         type="number"
         required
@@ -23,8 +23,8 @@ const Form = props => {
         name="weight"
         id="weight"
         onChange={props.onChangeHandler}
-      />
-      <label htmlFor="height">Height</label>
+      /><br/>
+      <label htmlFor="height" id='height-label'>Height</label>
       <input
         type="number"
         required
@@ -33,7 +33,7 @@ const Form = props => {
         name="height"
         id="height"
         onChange={props.onChangeHandler}
-      />
+      /><br/>
       <button id='calculate'>Calculate BMI</button>
     </form>
   );
