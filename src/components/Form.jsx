@@ -1,40 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { onSubmitHandler } from "../helpers/bmiHelper";
+import { CHANGE_CALCULATION } from "../state/actions/actionTypes";
 
-const Form = props => {
+const Form = () => {
+  const dispatch = useDispatch();
+  const calculationSystem = useSelector((state) => state.calculationSystem);
 
-  const weightPlaceholder = props.calculationSystem == 'metric' ? 'Weight in kgs' : 'Weight in pounds'
-  const heightPlaceholder = props.calculationSystem == 'metric' ? 'Height in cm' : 'Height in inches'
+  const weightPlaceholder =
+    calculationSystem == "metric" ? "Weight in kgs" : "Weight in pounds";
+  const heightPlaceholder =
+    calculationSystem == "metric" ? "Height in cm" : "Height in inches";
 
   return (
-    <form onSubmit={props.onSubmitHandler}>
+    <form
+      onSubmit={(event) =>
+        onSubmitHandler(
+          event,
+          event.target.elements.weight.value,
+          event.target.elements.height.value,
+          calculationSystem,
+          dispatch
+        )
+      }
+    >
+      <select
+        name="calculationSystem"
+        id="selectmethod"
+        onChange={(event) =>
+          dispatch({
+            type: CHANGE_CALCULATION,
+            payload: { calculationSystem: event.target.value },
+          })
+        }
+      >
+        <option name="metric" value="metric">
+          Metric
+        </option>
+        <option name="imperial" value="imperial">
+          Imperial
+        </option>
+      </select>
+      <br />
 
-      <select name= 'calculationSystem' id='selectmethod' 
-        onChange={props.onChangeHandler}>
-        <option name='metric' value='metric'>Metric</option>
-        <option name='imperial' value='imperial'>Imperial</option>
-      </select><br/>
-
-      <label htmlFor="weight" id='weight-label'>Weight</label>
+      <label htmlFor="weight" id="weight-label">
+        Weight
+      </label>
       <input
         type="number"
         required
         placeholder={weightPlaceholder}
-        value={props.weight}
         name="weight"
         id="weight"
-        onChange={props.onChangeHandler}
-      /><br/>
-      <label htmlFor="height" id='height-label'>Height</label>
+      />
+      <br />
+      <label htmlFor="height" id="height-label">
+        Height
+      </label>
       <input
         type="number"
         required
         placeholder={heightPlaceholder}
-        value={props.height}
         name="height"
         id="height"
-        onChange={props.onChangeHandler}
-      /><br/>
-      <button id='calculate'>Calculate BMI</button>
+      />
+      <br />
+      <button id="calculate">Calculate BMI</button>
     </form>
   );
 };
