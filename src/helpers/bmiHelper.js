@@ -2,15 +2,13 @@ import { SET_BMI } from "../state/actions/actionTypes";
 
 const onSubmitHandler = (
   event,
-  weight,
-  height,
   calculationSystem,
   dispatch
 ) => {
   event.preventDefault();
   const [bmiValue, bmiMessage] = calculateBmi(
-    weight,
-    height,
+    event.target.weight.value,
+    event.target.height.value,
     calculationSystem
   );
   dispatch({

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onSubmitHandler } from "../helpers/bmiHelper";
 import { CHANGE_CALCULATION } from "../state/actions/actionTypes";
+import { FormField, TextInput, Button, Select, Form } from "grommet";
 
-const Form = () => {
+const InputForm = () => {
   const dispatch = useDispatch();
   const calculationSystem = useSelector((state) => state.calculationSystem);
 
@@ -13,18 +14,16 @@ const Form = () => {
     calculationSystem == "metric" ? "Height in cm" : "Height in inches";
 
   return (
-    <form
-      onSubmit={(event) =>
+    <Form
+      onSubmit={({ event }) => {
         onSubmitHandler(
           event,
-          event.target.elements.weight.value,
-          event.target.elements.height.value,
           calculationSystem,
           dispatch
-        )
-      }
+        );
+      }}
     >
-      <select
+      {/* <select
         name="calculationSystem"
         id="selectmethod"
         onChange={(event) =>
@@ -40,34 +39,43 @@ const Form = () => {
         <option name="imperial" value="imperial">
           Imperial
         </option>
-      </select>
-      <br />
+      </select> */}
 
-      <label htmlFor="weight" id="weight-label">
+      <Select
+        options={["Metric", "Imperial"]}
+        value={calculationSystem}
+        onChange={({ option }) =>
+          dispatch({
+            type: CHANGE_CALCULATION,
+            payload: { calculationSystem: (option) },
+          })
+        }
+      />
+
+      <FormField htmlFor="weight" id="weight-label">
         Weight
-      </label>
-      <input
-        type="number"
+      </FormField>
+      <TextInput
         required
         placeholder={weightPlaceholder}
         name="weight"
         id="weight"
       />
-      <br />
-      <label htmlFor="height" id="height-label">
+
+      <FormField htmlFor="height" id="height-label">
         Height
-      </label>
-      <input
+      </FormField>
+      <TextInput
         type="number"
         required
         placeholder={heightPlaceholder}
         name="height"
         id="height"
       />
-      <br />
-      <button id="calculate">Calculate BMI</button>
-    </form>
+
+      <Button id="calculate">Calculate BMI</Button>
+    </Form>
   );
 };
 
-export default Form;
+export default InputForm;
