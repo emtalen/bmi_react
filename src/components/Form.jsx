@@ -9,71 +9,50 @@ const InputForm = () => {
   const calculationSystem = useSelector((state) => state.calculationSystem);
 
   const weightPlaceholder =
-    calculationSystem == "metric" ? "Weight in kgs" : "Weight in pounds";
+    calculationSystem == "Metric" ? "Weight in kgs" : "Weight in pounds";
   const heightPlaceholder =
-    calculationSystem == "metric" ? "Height in cm" : "Height in inches";
+    calculationSystem == "Metric" ? "Height in cm" : "Height in inches";
 
   return (
     <Form
-      onSubmit={({ event }) => {
-        onSubmitHandler(
-          event,
-          calculationSystem,
-          dispatch
-        );
+      onSubmit={( event ) => {
+        onSubmitHandler(event, calculationSystem, dispatch);
       }}
     >
-      {/* <select
-        name="calculationSystem"
-        id="selectmethod"
-        onChange={(event) =>
-          dispatch({
-            type: CHANGE_CALCULATION,
-            payload: { calculationSystem: event.target.value },
-          })
-        }
-      >
-        <option name="metric" value="metric">
-          Metric
-        </option>
-        <option name="imperial" value="imperial">
-          Imperial
-        </option>
-      </select> */}
 
       <Select
+      id='selectmethod'
+      margin='medium'
         options={["Metric", "Imperial"]}
         value={calculationSystem}
         onChange={({ option }) =>
           dispatch({
             type: CHANGE_CALCULATION,
-            payload: { calculationSystem: (option) },
+            payload: { calculationSystem: option },
           })
         }
       />
 
-      <FormField htmlFor="weight" id="weight-label">
-        Weight
+      <FormField htmlFor="weight" id="weight-label" margin='small'>
+        <TextInput
+          required
+          placeholder={weightPlaceholder}
+          name="weight"
+          id="weight"
+        />
       </FormField>
-      <TextInput
-        required
-        placeholder={weightPlaceholder}
-        name="weight"
-        id="weight"
-      />
 
-      <FormField htmlFor="height" id="height-label">
-        Height
+      <FormField htmlFor="height" id="height-label" margin='small'>
+        <TextInput
+          type="number"
+          required
+          placeholder={heightPlaceholder}
+          name="height"
+          id="height"
+        />
       </FormField>
-      <TextInput
-        type="number"
-        required
-        placeholder={heightPlaceholder}
-        name="height"
-        id="height"
-      />
 
-      <Button id="calculate">Calculate BMI</Button>
+      <Button type='submit' id="calculate" label='Calculate BMI' margin='small'/>
     </Form>
   );
 };

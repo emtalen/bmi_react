@@ -19,10 +19,11 @@ const onSubmitHandler = (
 
 const calculateBmi = (weight, height, calculationSystem) => {
   const bmiValue =
-    calculationSystem === "metric"
+    calculationSystem === "Metric"
       ? (weight / (((height / 100) * height) / 100)).toFixed(2)
       : (703 * (weight / (height * height))).toFixed(2);
   const bmiMessage = setBmiMessage(bmiValue);
+  
   return [bmiValue, bmiMessage];
 };
 

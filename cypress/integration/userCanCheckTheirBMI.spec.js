@@ -4,7 +4,7 @@ describe("BMI Calculator", () => {
   });
 
   it("Calculates BMI in metric", () => {
-    cy.get("select#selectmethod").select("metric");
+    cy.get("#selectmethod").click();
     cy.get("input#weight").type(90);
     cy.get("input#height").type(190);
     cy.get("button#calculate").click();
@@ -14,7 +14,10 @@ describe("BMI Calculator", () => {
     );
   });
   it('Calculates BMI in imperial',() => {
-    cy.get('select#selectmethod').select('imperial');
+    cy.get('.StyledIcon-ofa7kd-0').click();
+    cy.get(
+      ".iElqND > .StyledBox-sc-13pk1d4-0 > .StyledText-sc-1sadyjn-0"
+    ).click({ multiple: true });
     cy.get('input#weight').type(198);
     cy.get('input#height').type(74);
     cy.get('button#calculate').click();

@@ -3,7 +3,7 @@ const initialState = {
   height: "",
   bmiValue: "",
   bmiMessage: "",
-  calculationSystem: "metric",
+  calculationSystem: "Metric",
 };
 
 export default initialState
